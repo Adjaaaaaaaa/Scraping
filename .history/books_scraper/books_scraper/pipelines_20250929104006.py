@@ -1,6 +1,6 @@
 import re         # regex, inclus dans Python → pas besoin d'installer
 from sqlalchemy.orm import sessionmaker
-from .models import Book, engine
+from models import Book, engine
 
 # Dictionnaire pour convertir les notes en chiffres
 RATINGS = {"One": 1, "Two": 2, "Three": 3, "Four": 4, "Five": 5}
