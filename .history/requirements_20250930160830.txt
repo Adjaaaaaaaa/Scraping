@@ -10,4 +10,8 @@ fastapi>=0.109.0
 # Uvicorn pour lancer le serveur FastAPI
 uvicorn[standard]>=0.24.0
 
+
+fastapi
+uvicorn
+sqlalchemy
 pydantic
