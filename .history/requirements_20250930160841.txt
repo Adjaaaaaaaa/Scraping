@@ -1,0 +1,13 @@
+# Scrapy pour le web scraping
+scrapy>=2.8.0
+
+# SQLAlchemy pour la base SQLite
+SQLAlchemy>=2.0.0
+
+# FastAPI pour l'API REST
+fastapi>=0.109.0
+
+# Uvicorn pour lancer le serveur FastAPI
+uvicorn[standard]>=0.24.0
+
+pydantic
