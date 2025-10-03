@@ -1,3 +1,6 @@
+
+schedule
+
 # Scrapy pour le web scraping
 scrapy>=2.8.0
 

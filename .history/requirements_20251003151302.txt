@@ -10,8 +10,7 @@ fastapi>=0.109.0
 # Uvicorn pour lancer le serveur FastAPI
 uvicorn[standard]>=0.24.0
 
-# Pydantic pour validation
-pydantic>=2.5.0
+pydantic
 
-# Scheduler pour exécutions automatiques
-schedule>=1.2.0
+schedule
+
