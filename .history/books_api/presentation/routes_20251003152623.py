@@ -4,9 +4,8 @@ from typing import List, Optional
 from enum import Enum
 
 from books_api.data.database import get_db
-from books_api.data.repositories import BookRepository, BookHistoryRepository
+from books_api.data.repositories import BookRepository
 from books_api.presentation.schemas import BookSchema
-
 
 router = APIRouter()
 
@@ -85,16 +84,5 @@ def list_books(skip: int = 0, limit: int = 100, repo: BookRepository = Depends(g
     return repo.get_all(skip, limit)
 
 
-
-@router.get("/books/price-history/{upc}")
-def get_book_price_history(upc: str, db: Session = Depends(get_db)):
-    """
-    Retourne l'historique des variations de prix pour un livre.
-    """
-    repo = BookHistoryRepository(db)
-    price_changes = repo.get_price_changes(upc)
-    if not price_changes:
-        raise HTTPException(status_code=404, detail="Aucune variation de prix trouvée pour ce livre")
-    return price_changes
 
 

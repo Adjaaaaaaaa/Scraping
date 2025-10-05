@@ -4,9 +4,14 @@ from typing import List, Optional
 from enum import Enum
 
 from books_api.data.database import get_db
-from books_api.data.repositories import BookRepository, BookHistoryRepository
+from books_api.data.repositories import BookRepository, 
 from books_api.presentation.schemas import BookSchema
 
+
+from books_api.data.repositories import BookHistoryRepository
+from fastapi import HTTPException, Depends
+from sqlalchemy.orm import Session
+from books_api.data.database import get_db
 
 router = APIRouter()
 

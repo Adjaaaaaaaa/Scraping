@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from books_api.data.tables import BookTable
-from books_scraper.books_scraper.models import Book, BookHistory
+from books.books_scraper.models import Book, BookHistory
 
 
 

@@ -1,9 +1,6 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from books_api.data.tables import BookTable
-from books_scraper.books_scraper.models import Book, BookHistory
-
-
 
 class BookRepository:
     def __init__(self, db: Session):
@@ -45,8 +42,6 @@ class BookRepository:
         return query.offset(skip).limit(limit).all()
     
 
-
-
 class BookHistoryRepository:
     def __init__(self, db: Session):
         self.db = db
@@ -55,13 +50,14 @@ class BookHistoryRepository:
         """
         Retourne uniquement les modifications de prix pour un livre.
         """
+        # Récupère tous les changements pour le livre
         all_history = (
             self.db.query(BookHistory)
             .filter(BookHistory.book_upc == book_upc)
             .order_by(BookHistory.change_date.asc())
             .all()
         )
-
+        # Filtrer uniquement les changements de prix
         price_changes = []
         for h in all_history:
             old_price = h.old_data.get("price") if h.old_data else None

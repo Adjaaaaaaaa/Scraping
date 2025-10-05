@@ -4,9 +4,8 @@ from typing import List, Optional
 from enum import Enum
 
 from books_api.data.database import get_db
-from books_api.data.repositories import BookRepository, BookHistoryRepository
+from books_api.data.repositories import BookRepository
 from books_api.presentation.schemas import BookSchema
-
 
 router = APIRouter()
 
@@ -85,6 +84,10 @@ def list_books(skip: int = 0, limit: int = 100, repo: BookRepository = Depends(g
     return repo.get_all(skip, limit)
 
 
+from books_api.data.repositories import BookHistoryRepository
+from fastapi import HTTPException, Depends
+from sqlalchemy.orm import Session
+from books_api.data.database import get_db
 
 @router.get("/books/price-history/{upc}")
 def get_book_price_history(upc: str, db: Session = Depends(get_db)):

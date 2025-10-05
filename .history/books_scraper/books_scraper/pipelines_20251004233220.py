@@ -56,7 +56,7 @@ class CleanBooksPipeline:
 
 class SaveBooksPipeline:
     def open_spider(self, spider):
-        init_db()
+                init_db()
         self.session = SessionLocal()
         self.scraped_upcs = set()
 
