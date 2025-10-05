@@ -1,8 +1,13 @@
-# books_api/data/tables.py
 from sqlalchemy import Column, Integer, String, Float
 from .database import Base
 
 class BookTable(Base):
+    """
+    SQLAlchemy model for the 'books' table.
+
+    This table stores all scraped book data including metadata,
+    pricing, availability, and ratings.
+    """
     __tablename__ = "books"  # correspond à la table existante du scraper
 
     id = Column(Integer, primary_key=True, index=True)
